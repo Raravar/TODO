@@ -63,11 +63,14 @@ int main()
 
 	// Run the SQL (convert the string to a C-String with c_str() )
 	rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
+    // Truncado de tablas y secuencias autoincrementables
 
     std:string truncar;
 	std::cout<<"Desea TRUNCAR LA TABLA?"<< endl;
 	std::cin >> truncar;
+
 	if (truncar == "si"){
+
         sql="DELETE FROM TODO;";
         rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
         sql="DELETE FROM sqlite_sequence;";
