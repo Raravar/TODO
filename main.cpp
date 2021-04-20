@@ -70,6 +70,8 @@ int main()
 	if (truncar == "si"){
         sql="DELETE FROM TODO;";
         rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
+        sql="DELETE FROM sqlite_sequence;";
+        rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);
 
 }
 
